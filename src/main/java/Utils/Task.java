@@ -1,11 +1,7 @@
 package Utils;
-
-<<<<<<< HEAD
-public class Task {
-=======
 import java.time.LocalDate;
-
 public class Task {
+
     private String owner;
     private String description;
     private LocalDate deadline;
@@ -18,5 +14,4 @@ public class Task {
         this.description = description;
         this.deadline = deadline;
     }
->>>>>>> 8e2a594 (Created task class attributes and constructor)
 }
