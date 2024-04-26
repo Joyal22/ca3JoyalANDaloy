@@ -40,7 +40,7 @@ public class Task {
 
     public void setDeadline(LocalDate deadline) {
         if (deadline.isBefore(LocalDate.now())) {
-            throw new IllegalArgumentException("Deadline cannot be in the past.");
+            throw new IllegalArgumentException("Deadline cannot be in the past");
         }
         this.deadline = deadline;
     }
