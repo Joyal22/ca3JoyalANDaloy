@@ -1,5 +1,7 @@
 package Utils;
 import java.time.LocalDate;
+import java.util.Objects;
+
 public class Task {
     private String owner;
     private String description;
@@ -41,5 +43,10 @@ public class Task {
             throw new IllegalArgumentException("Deadline cannot be in the past.");
         }
         this.deadline = deadline;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(owner, description, deadline);
     }
 }
