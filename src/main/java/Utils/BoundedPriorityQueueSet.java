@@ -30,8 +30,20 @@ public class BoundedPriorityQueueSet {
         this.queue = new LinkedList<>();
         this.maxSize = maxSize;
     }
-
-
+    /**
+     * Returns the max size of the queue.
+     * @return The max size of the queue.
+     */
+    public int getMaxSize() {
+        return maxSize;
+    }
+    /**
+     * Returns the queue.
+     * @return The queue.
+     */
+    public LinkedList<Task> getQueue() {
+        return queue;
+    }
     /**
      * Returns the current size of the queue.
      * @return The size of the queue.
