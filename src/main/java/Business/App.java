@@ -13,11 +13,12 @@ public class App {
     private Queue<Task> taskQueue;
     private Random random;
 
-    public App(){
+    public App() {
         taskQueue = new LinkedList<>();
         random = new Random();
     }
-    public void run(){
+
+    public void run() {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
         boolean useRiskyApproach = random.nextBoolean();
@@ -42,7 +43,6 @@ public class App {
             scanner.nextLine();
 
 
-
             switch (choice) {
                 case 1:
 
@@ -54,7 +54,7 @@ public class App {
 
                     break;
 
-                    case 4:
+                case 4:
                     System.out.println("Tasks remaining: " + taskQueue.size());
                     break;
                 case 5:
@@ -67,5 +67,7 @@ public class App {
                     System.out.println("Invalid choice. Please try again.");
             }
         }
+    }
 }
+
 
