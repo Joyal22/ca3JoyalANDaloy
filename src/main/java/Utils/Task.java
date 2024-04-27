@@ -2,13 +2,13 @@ package Utils;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Task {
+public class Task implements Comparable<Task> {
     private String owner;
     private String description;
     private LocalDate deadline;
 
     public Task(String owner, String description, LocalDate deadline) {
-        if (deadline.compareTo(LocalDate.now()) <= 0) {
+        if (!deadline.isAfter(LocalDate.now())) {
             throw new IllegalArgumentException("Deadline cannot be before or equal to the current date Please Insert New Date");
         }
         this.owner = owner;
@@ -63,9 +63,22 @@ public class Task {
 
     }
     @Override
+    public int compareTo(Task other) {
+        return this.deadline.compareTo(other.deadline);
+    }
+    @Override
     public int hashCode() {
         return Objects.hash(owner, description, deadline);
     }
+    @Override
+    public String toString() {
+        return "Task{" +
+                "owner='" + owner + '\'' +
+                ", description='" + description + '\'' +
+                ", deadline=" + deadline +
+                '}';
+    }
+
 
 
 }
