@@ -1,6 +1,7 @@
 package Utils;
 
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 public class BoundedPriorityQueueSet {
     private LinkedList<Task> queue;
@@ -79,6 +80,37 @@ public class BoundedPriorityQueueSet {
         }
         return this.queue.size();
     }
+    public void add(Task task) throws DuplicateElementException {
+        if (isFull()) {
+            throw new IllegalStateException("Queue is full");
+        }
+        int position = calcPosition(task);
+        queue.add(position, task);
+    }
+
+    public boolean offer(Task task) throws DuplicateElementException {
+        if (isFull() || queue.contains(task)) {
+            return false;
+        }
+        int position = calcPosition(task);
+        queue.add(position, task);
+        return true;
+    }
+
+    public Task element() throws NoSuchElementException {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Queue is empty");
+        }
+        return queue.getFirst();
+    }
+
+    public Task poll() {
+        if (isEmpty()) {
+            return null;
+        }
+        return queue.removeFirst();
+    }
+
 
 
 }
